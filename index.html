@@ -1,6 +1,1240 @@
 <!DOCTYPE html>
 <html lang="en">
-<h1> Find all clinic site templates </h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileCare Dental Clinic | Professional Dental Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hclab-primary: #1a6dbb;
+            --hclab-secondary: #2c97cc;
+            --hclab-accent: #ff6b6b;
+            --hclab-light: #f8f9fa;
+            --hclab-dark: #212529;
+            --hclab-gray: #6c757d;
+            --hclab-success: #28a745;
+            --hclab-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --hclab-transition: all 0.3s ease;
+        }
 
-<p> <a href="#"> Clinic-1</p>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--hclab-dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--hclab-primary);
+            border-radius: 2px;
+        }
+
+        .hclab-text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--hclab-gray);
+        }
+
+        .hclab-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .hclab-section {
+            padding: 5rem 0;
+        }
+
+        .hclab-section-alt {
+            background-color: var(--hclab-light);
+        }
+
+        .hclab-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .hclab-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .hclab-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .hclab-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .hclab-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--hclab-primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--hclab-transition);
+            text-decoration: none;
+            box-shadow: var(--hclab-shadow);
+            font-size: 1rem;
+        }
+
+        .hclab-btn:hover {
+            background: var(--hclab-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .hclab-btn-outline {
+            background: transparent;
+            border: 2px solid var(--hclab-primary);
+            color: var(--hclab-primary);
+            margin-left: 1rem;
+        }
+
+        .hclab-btn-outline:hover {
+            background: var(--hclab-primary);
+            color: white;
+        }
+
+        .hclab-text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        .hclab-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-header-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .hclab-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .hclab-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--hclab-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .hclab-logo i {
+            margin-right: 0.5rem;
+            color: var(--hclab-accent);
+        }
+
+        .hclab-nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .hclab-nav-item {
+            margin-left: 2rem;
+        }
+
+        .hclab-nav-link {
+            text-decoration: none;
+            color: var(--hclab-dark);
+            font-weight: 500;
+            transition: var(--hclab-transition);
+            position: relative;
+        }
+
+        .hclab-nav-link:hover {
+            color: var(--hclab-primary);
+        }
+
+        .hclab-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--hclab-primary);
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hclab-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--hclab-dark);
+        }
+
+        /* Hero Section */
+        .hclab-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1588776813677-77d55248b198?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hclab-hero-content {
+            max-width: 600px;
+        }
+
+        .hclab-hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--hclab-dark);
+        }
+
+        .hclab-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--hclab-gray);
+        }
+
+        .hclab-hero-image {
+            position: relative;
+        }
+
+        .hclab-hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--hclab-shadow);
+        }
+
+        /* Services */
+        .hclab-service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--hclab-shadow);
+            transition: var(--hclab-transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hclab-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .hclab-service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--hclab-primary);
+        }
+
+        .hclab-service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .hclab-about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hclab-about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--hclab-shadow);
+        }
+
+        .hclab-about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Stats */
+        .hclab-stats {
+            display: flex;
+            margin-top: 2rem;
+            gap: 2rem;
+        }
+
+        .hclab-stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .hclab-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--hclab-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hclab-stat-label {
+            font-size: 0.9rem;
+            color: var(--hclab-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Doctors */
+        .hclab-doctor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--hclab-shadow);
+            transition: var(--hclab-transition);
+            text-align: center;
+        }
+
+        .hclab-doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .hclab-doctor-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .hclab-doctor-info {
+            padding: 1.5rem;
+        }
+
+        .hclab-doctor-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .hclab-doctor-specialty {
+            color: var(--hclab-primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hclab-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hclab-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--hclab-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hclab-dark);
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-social-link:hover {
+            background: var(--hclab-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials */
+        .hclab-testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hclab-testimonial-slide {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--hclab-shadow);
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hclab-testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--hclab-gray);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hclab-testimonial-text::before,
+        .hclab-testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--hclab-primary);
+            opacity: 0.2;
+        }
+
+        .hclab-testimonial-text::before {
+            position: absolute;
+            top: -20px;
+            left: -15px;
+        }
+
+        .hclab-testimonial-text::after {
+            position: absolute;
+            bottom: -40px;
+            right: -15px;
+        }
+
+        .hclab-testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hclab-testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 3px solid var(--hclab-primary);
+        }
+
+        .hclab-testimonial-author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .hclab-testimonial-author-info p {
+            margin-bottom: 0;
+            color: var(--hclab-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Appointment */
+        .hclab-appointment-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--hclab-shadow);
+        }
+
+        .hclab-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .hclab-form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--hclab-dark);
+        }
+
+        .hclab-form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-form-control:focus {
+            outline: none;
+            border-color: var(--hclab-primary);
+            box-shadow: 0 0 0 3px rgba(26, 109, 187, 0.2);
+        }
+
+        textarea.hclab-form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Contact */
+        .hclab-contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .hclab-contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .hclab-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .hclab-contact-icon {
+            font-size: 1.5rem;
+            color: var(--hclab-primary);
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+
+        .hclab-contact-text h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .hclab-map {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--hclab-shadow);
+            margin-top: 2rem;
+        }
+
+        .hclab-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .hclab-footer {
+            background: var(--hclab-dark);
+            color: white;
+            padding: 5rem 0 0;
+        }
+
+        .hclab-footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .hclab-footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .hclab-footer-logo i {
+            color: var(--hclab-accent);
+            margin-right: 0.5rem;
+        }
+
+        .hclab-footer-desc {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .hclab-footer-heading {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .hclab-footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--hclab-primary);
+            border-radius: 2px;
+        }
+
+        .hclab-footer-links {
+            list-style: none;
+        }
+
+        .hclab-footer-link {
+            margin-bottom: 0.8rem;
+        }
+
+        .hclab-footer-link a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-footer-link a:hover {
+            color: var(--hclab-primary);
+            padding-left: 5px;
+        }
+
+        .hclab-footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .hclab-footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--hclab-transition);
+        }
+
+        .hclab-footer-social-link:hover {
+            background: var(--hclab-primary);
+            transform: translateY(-3px);
+        }
+
+        .hclab-footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .hclab-footer-bottom a {
+            color: var(--hclab-primary);
+            text-decoration: none;
+        }
+
+        .hclab-footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hclab-animate {
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+
+        .hclab-animate-1 { animation-delay: 0.2s; }
+        .hclab-animate-2 { animation-delay: 0.4s; }
+        .hclab-animate-3 { animation-delay: 0.6s; }
+        .hclab-animate-4 { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hclab-about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hclab-contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hclab-footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hclab-hero {
+                text-align: center;
+                padding-top: 5rem;
+            }
+            
+            .hclab-hero-content {
+                justify-self: center;
+            }
+            
+            .hclab-hero-image {
+                justify-self: center;
+                margin-top: 3rem;
+            }
+            
+            .hclab-grid-2, .hclab-grid-3, .hclab-grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .hclab-section {
+                padding: 4rem 0;
+            }
+            
+            .hclab-navbar {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .hclab-nav-menu {
+                margin-top: 1rem;
+            }
+            
+            .hclab-nav-item {
+                margin: 0 1rem;
+            }
+            
+            .hclab-mobile-toggle {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .hclab-nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .hclab-nav-menu.active {
+                right: 0;
+            }
+            
+            .hclab-footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hclab-footer-links {
+                text-align: left;
+            }
+            
+            .hclab-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hclab-btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .hclab-btn-outline {
+                margin-left: 0;
+            }
+            
+            .hclab-testimonial-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hclab-header">
+        <div class="hclab-container">
+            <nav class="hclab-navbar">
+                <a href="#" class="hclab-logo"><i class="fas fa-tooth"></i> SmileCare</a>
+                <button class="hclab-mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="hclab-nav-menu">
+                    <li class="hclab-nav-item"><a href="#home" class="hclab-nav-link">Home</a></li>
+                    <li class="hclab-nav-item"><a href="#services" class="hclab-nav-link">Services</a></li>
+                    <li class="hclab-nav-item"><a href="#about" class="hclab-nav-link">About</a></li>
+                    <li class="hclab-nav-item"><a href="#doctors" class="hclab-nav-link">Doctors</a></li>
+                    <li class="hclab-nav-item"><a href="#testimonials" class="hclab-nav-link">Testimonials</a></li>
+                    <li class="hclab-nav-item"><a href="#appointment" class="hclab-nav-link">Appointment</a></li>
+                    <li class="hclab-nav-item"><a href="#contact" class="hclab-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hclab-section hclab-hero">
+        <div class="hclab-container">
+            <div class="hclab-grid hclab-grid-2">
+                <div class="hclab-hero-content hclab-animate hclab-animate-1">
+                    <h1>Your Smile, Our Passion</h1>
+                    <p>Experience exceptional dental care with our team of experts. We combine advanced technology with compassionate care to give you the healthy, beautiful smile you deserve.</p>
+                    <div class="hclab-hero-buttons">
+                        <a href="#appointment" class="hclab-btn">Book Appointment</a>
+                        <a href="#services" class="hclab-btn hclab-btn-outline">Our Services</a>
+                    </div>
+                </div>
+                <div class="hclab-hero-image hclab-animate hclab-animate-2">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dental Care">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="hclab-section hclab-section-alt">
+        <div class="hclab-container">
+            <div class="hclab-text-center hclab-animate hclab-animate-1">
+                <h2>Our Dental Services</h2>
+                <p>Comprehensive dental care for all ages</p>
+            </div>
+            <div class="hclab-grid hclab-grid-3">
+                <div class="hclab-service-card hclab-animate hclab-animate-2">
+                    <i class="fas fa-teeth hclab-service-icon"></i>
+                    <h3>General Dentistry</h3>
+                    <p>Routine checkups, cleanings, and preventive care to maintain your oral health.</p>
+                </div>
+                <div class="hclab-service-card hclab-animate hclab-animate-3">
+                    <i class="fas fa-tooth hclab-service-icon"></i>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Transform your smile with veneers, teeth whitening, and aesthetic procedures.</p>
+                </div>
+                <div class="hclab-service-card hclab-animate hclab-animate-4">
+                    <i class="fas fa-bone hclab-service-icon"></i>
+                    <h3>Dental Implants</h3>
+                    <p>Replace missing teeth with natural-looking, functional dental implants.</p>
+                </div>
+                <div class="hclab-service-card hclab-animate hclab-animate-2">
+                    <i class="fas fa-teeth-open hclab-service-icon"></i>
+                    <h3>Orthodontics</h3>
+                    <p>Straighten your teeth with braces or clear aligners for a perfect smile.</p>
+                </div>
+                <div class="hclab-service-card hclab-animate hclab-animate-3">
+                    <i class="fas fa-child hclab-service-icon"></i>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>Specialized care for children to ensure healthy dental development.</p>
+                </div>
+                <div class="hclab-service-card hclab-animate hclab-animate-4">
+                    <i class="fas fa-head-side-mask hclab-service-icon"></i>
+                    <h3>Emergency Care</h3>
+                    <p>Immediate treatment for dental emergencies and urgent dental issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="hclab-section">
+        <div class="hclab-container">
+            <div class="hclab-about-content">
+                <div class="hclab-about-image hclab-animate hclab-animate-1">
+                    <img src="https://images.unsplash.com/photo-1588776813677-77d55248b198?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dental Clinic">
+                </div>
+                <div class="hclab-about-text hclab-animate hclab-animate-2">
+                    <h2>About Our Clinic</h2>
+                    <p>Founded in 2010, SmileCare Dental Clinic has been providing exceptional dental care to our community for over a decade. Our mission is to deliver personalized, comfortable, and effective dental treatments in a welcoming environment.</p>
+                    <p>Our state-of-the-art facility is equipped with the latest dental technology, ensuring precise diagnosis and treatment. We prioritize patient comfort and safety, implementing strict sterilization protocols and using only high-quality materials.</p>
+                    <div class="hclab-stats">
+                        <div class="hclab-stat-item">
+                            <div class="hclab-stat-number">15+</div>
+                            <div class="hclab-stat-label">Years Experience</div>
+                        </div>
+                        <div class="hclab-stat-item">
+                            <div class="hclab-stat-number">12K+</div>
+                            <div class="hclab-stat-label">Happy Patients</div>
+                        </div>
+                        <div class="hclab-stat-item">
+                            <div class="hclab-stat-number">12</div>
+                            <div class="hclab-stat-label">Expert Doctors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="hclab-section hclab-section-alt">
+        <div class="hclab-container">
+            <div class="hclab-text-center hclab-animate hclab-animate-1">
+                <h2>Meet Our Dentists</h2>
+                <p>Experienced professionals dedicated to your oral health</p>
+            </div>
+            <div class="hclab-grid hclab-grid-4">
+                <div class="hclab-doctor-card hclab-animate hclab-animate-2">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. Sarah Johnson" class="hclab-doctor-img">
+                    <div class="hclab-doctor-info">
+                        <h3 class="hclab-doctor-name">Dr. Sarah Johnson</h3>
+                        <p class="hclab-doctor-specialty">Orthodontist</p>
+                        <div class="hclab-social-links">
+                            <a href="#" class="hclab-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hclab-doctor-card hclab-animate hclab-animate-3">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. Michael Chen" class="hclab-doctor-img">
+                    <div class="hclab-doctor-info">
+                        <h3 class="hclab-doctor-name">Dr. Michael Chen</h3>
+                        <p class="hclab-doctor-specialty">Cosmetic Dentist</p>
+                        <div class="hclab-social-links">
+                            <a href="#" class="hclab-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hclab-doctor-card hclab-animate hclab-animate-4">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Dr. Emily Rodriguez" class="hclab-doctor-img">
+                    <div class="hclab-doctor-info">
+                        <h3 class="hclab-doctor-name">Dr. Emily Rodriguez</h3>
+                        <p class="hclab-doctor-specialty">Pediatric Dentist</p>
+                        <div class="hclab-social-links">
+                            <a href="#" class="hclab-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hclab-doctor-card hclab-animate hclab-animate-2">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. James Wilson" class="hclab-doctor-img">
+                    <div class="hclab-doctor-info">
+                        <h3 class="hclab-doctor-name">Dr. James Wilson</h3>
+                        <p class="hclab-doctor-specialty">Oral Surgeon</p>
+                        <div class="hclab-social-links">
+                            <a href="#" class="hclab-social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hclab-social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="hclab-section">
+        <div class="hclab-container">
+            <div class="hclab-text-center hclab-animate hclab-animate-1">
+                <h2>Patient Testimonials</h2>
+                <p>Hear what our patients have to say about their experience</p>
+            </div>
+            <div class="hclab-testimonials-container hclab-animate hclab-animate-2">
+                <div class="hclab-testimonial-slide">
+                    <p class="hclab-testimonial-text">I've been a patient at SmileCare for over 5 years now. The entire team is professional, caring, and gentle. Dr. Johnson made my teeth whitening procedure so comfortable. I'm thrilled with my results!</p>
+                    <div class="hclab-testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Patient" class="hclab-testimonial-avatar">
+                        <div class="hclab-testimonial-author-info">
+                            <h4>Jennifer Martinez</h4>
+                            <p>Cosmetic Dentistry Patient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="hclab-section hclab-section-alt">
+        <div class="hclab-container">
+            <div class="hclab-text-center hclab-animate hclab-animate-1">
+                <h2>Book an Appointment</h2>
+                <p>Schedule your visit with our dental experts</p>
+            </div>
+            <div class="hclab-appointment-form hclab-animate hclab-animate-2">
+                <form>
+                    <div class="hclab-grid hclab-grid-2">
+                        <div class="hclab-form-group">
+                            <label for="name" class="hclab-form-label">Full Name</label>
+                            <input type="text" id="name" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="email" class="hclab-form-label">Email Address</label>
+                            <input type="email" id="email" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="phone" class="hclab-form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="service" class="hclab-form-label">Service Needed</label>
+                            <select id="service" class="hclab-form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="general">General Dentistry</option>
+                                <option value="cosmetic">Cosmetic Dentistry</option>
+                                <option value="implants">Dental Implants</option>
+                                <option value="orthodontics">Orthodontics</option>
+                                <option value="pediatric">Pediatric Dentistry</option>
+                                <option value="emergency">Emergency Care</option>
+                            </select>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="date" class="hclab-form-label">Preferred Date</label>
+                            <input type="date" id="date" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="time" class="hclab-form-label">Preferred Time</label>
+                            <select id="time" class="hclab-form-control" required>
+                                <option value="">Select a time</option>
+                                <option value="9">9:00 AM</option>
+                                <option value="10">10:00 AM</option>
+                                <option value="11">11:00 AM</option>
+                                <option value="12">12:00 PM</option>
+                                <option value="13">1:00 PM</option>
+                                <option value="14">2:00 PM</option>
+                                <option value="15">3:00 PM</option>
+                                <option value="16">4:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hclab-form-group">
+                        <label for="message" class="hclab-form-label">Message</label>
+                        <textarea id="message" class="hclab-form-control" placeholder="Any specific concerns or requests..."></textarea>
+                    </div>
+                    <button type="submit" class="hclab-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="hclab-section">
+        <div class="hclab-container">
+            <div class="hclab-text-center hclab-animate hclab-animate-1">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for inquiries and information</p>
+            </div>
+            <div class="hclab-contact-wrapper hclab-animate hclab-animate-2">
+                <div class="hclab-contact-info">
+                    <div class="hclab-contact-item">
+                        <i class="fas fa-map-marker-alt hclab-contact-icon"></i>
+                        <div class="hclab-contact-text">
+                            <h4>Our Location</h4>
+                            <p>123 Dental Avenue, Smile City, SC 12345</p>
+                        </div>
+                    </div>
+                    <div class="hclab-contact-item">
+                        <i class="fas fa-phone-alt hclab-contact-icon"></i>
+                        <div class="hclab-contact-text">
+                            <h4>Phone Number</h4>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                    <div class="hclab-contact-item">
+                        <i class="fas fa-envelope hclab-contact-icon"></i>
+                        <div class="hclab-contact-text">
+                            <h4>Email Address</h4>
+                            <p>info@smilecareclinic.com</p>
+                        </div>
+                    </div>
+                    <div class="hclab-contact-item">
+                        <i class="fas fa-clock hclab-contact-icon"></i>
+                        <div class="hclab-contact-text">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="hclab-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.184133404672!2d-73.987574724525!3d40.758028871388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="hclab-contact-form">
+                    <form>
+                        <div class="hclab-form-group">
+                            <label for="contact-name" class="hclab-form-label">Your Name</label>
+                            <input type="text" id="contact-name" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="contact-email" class="hclab-form-label">Email Address</label>
+                            <input type="email" id="contact-email" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="subject" class="hclab-form-label">Subject</label>
+                            <input type="text" id="subject" class="hclab-form-control" required>
+                        </div>
+                        <div class="hclab-form-group">
+                            <label for="contact-message" class="hclab-form-label">Message</label>
+                            <textarea id="contact-message" class="hclab-form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="hclab-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hclab-footer">
+        <div class="hclab-container">
+            <div class="hclab-footer-content">
+                <div>
+                    <a href="#" class="hclab-footer-logo"><i class="fas fa-tooth"></i> SmileCare</a>
+                    <p class="hclab-footer-desc">Providing exceptional dental care with a gentle touch. Our experienced team is committed to your oral health and beautiful smile.</p>
+                    <div class="hclab-footer-social">
+                        <a href="#" class="hclab-footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hclab-footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hclab-footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hclab-footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="hclab-footer-heading">Services</h3>
+                    <ul class="hclab-footer-links">
+                        <li class="hclab-footer-link"><a href="#">General Dentistry</a></li>
+                        <li class="hclab-footer-link"><a href="#">Cosmetic Dentistry</a></li>
+                        <li class="hclab-footer-link"><a href="#">Dental Implants</a></li>
+                        <li class="hclab-footer-link"><a href="#">Orthodontics</a></li>
+                        <li class="hclab-footer-link"><a href="#">Pediatric Dentistry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="hclab-footer-heading">Quick Links</h3>
+                    <ul class="hclab-footer-links">
+                        <li class="hclab-footer-link"><a href="#">Home</a></li>
+                        <li class="hclab-footer-link"><a href="#">About Us</a></li>
+                        <li class="hclab-footer-link"><a href="#">Our Doctors</a></li>
+                        <li class="hclab-footer-link"><a href="#">Appointment</a></li>
+                        <li class="hclab-footer-link"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="hclab-footer-heading">Newsletter</h3>
+                    <p class="hclab-footer-desc">Subscribe to our newsletter for dental tips and special offers.</p>
+                    <form>
+                        <div class="hclab-form-group">
+                            <input type="email" class="hclab-form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="hclab-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="hclab-footer-bottom">
+                <p>&copy; <span id="year">2025</span> SmileCare Dental Clinic. All rights reserved. Designed and Developed by <a href="#">Haxoranix</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.hclab-header');
+            if (window.scrollY > 50) {
+                header.classList.add('hclab-header-scrolled');
+            } else {
+                header.classList.remove('hclab-header-scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.hclab-mobile-toggle');
+        const navMenu = document.querySelector('.hclab-nav-menu');
+
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.hclab-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Animate elements on scroll
+        const animateElements = document.querySelectorAll('.hclab-animate');
+        
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        animateElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            observer.observe(element);
+        });
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
 </html>
