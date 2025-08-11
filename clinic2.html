@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrightSmile Dental — Modern Websites for Dentists</title>
+  <meta name="description" content="Modern dental website layout with sections for services, results, testimonials, FAQs and contact." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg-soft:#0f1a2e;
+      --card:#121c33;
+      --brand:#3aa9ff;
+      --accent:#63d297;
+      --text:#e8eefc;
+      --muted:#a3b0cc;
+      --warning:#ffd166;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --max: 1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Helvetica,Arial,sans-serif}
+    a{color:var(--brand);text-underline-offset:3px}
+    img{max-width:100%;height:auto}
+    .container{max-width:var(--max);margin:auto;padding:0 20px}
+    .btn{display:inline-block;border:0;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer;text-decoration:none;transition:.2s;white-space:nowrap}
+    .btn-primary{background:var(--brand);color:#061022;box-shadow:0 6px 16px rgba(58,169,255,.35)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{background:transparent;border:1px solid #2a3a5e;color:var(--text)}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:#0e263c;border:1px solid #1d3c60;color:#a7d6ff;padding:6px 10px;border-radius:999px;font-size:.85rem}
+    .muted{color:var(--muted)}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(11,18,32,.95), rgba(11,18,32,.85));backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid #16243f}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--accent))}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--text);text-decoration:none;font-weight:600;opacity:.92}
+    .nav a:hover{opacity:1}
+    .hamburger{display:none;border:1px solid #213154;background:#0f1a2e;border-radius:10px;padding:10px}
+    /* hero */
+    .hero{padding:56px 0 24px;background:
+      radial-gradient(800px 400px at 20% -50%, rgba(58,169,255,.22), transparent 60%),
+      radial-gradient(800px 400px at 80% -50%, rgba(99,210,151,.18), transparent 60%)
+     }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:34px;align-items:center}
+    .hero h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:.2em 0}
+    .hero p{font-size:1.05rem;color:var(--muted)}
+    .hero-card{background:var(--card);border:1px solid #1b2b4b;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .hero-stats{display:flex;gap:18px;margin-top:14px;flex-wrap:wrap}
+    .stat{background:#0e172c;border:1px solid #1a2a49;border-radius:12px;padding:12px 14px;min-width:130px}
+    .stat b{display:block;font-size:1.2rem}
+    /* trust row */
+    .trust{padding:20px 0 48px}
+    .trust .row{display:flex;gap:26px;flex-wrap:wrap;opacity:.9}
+    .chip{background:#0f213a;border:1px dashed #25406b;padding:10px 14px;border-radius:999px}
+    /* sections */
+    section{padding:64px 0;border-top:1px solid #152541}
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+    .section-title h2{margin:0;font-size:1.8rem}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .card{background:var(--card);border:1px solid #1b2b4b;border-radius:var(--radius);padding:22px}
+    .icon{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--brand),#7bd5ff)}
+    .list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px}
+    .tick{width:18px;height:18px;border-radius:50%;background:var(--accent);display:inline-block;transform:translateY(3px)}
+    /* testimonial */
+    .testimonials .item{display:flex;gap:16px}
+    .avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#82ffe5,#3aa9ff)}
+    blockquote{margin:0;color:#cfe4ff}
+    /* CTA */
+    .cta{background:linear-gradient(135deg,#10243f,#0e182a);border:1px solid #1a2a49;border-radius:var(--radius);padding:28px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:var(--shadow)}
+    footer{padding:48px 0;background:var(--bg-soft);border-top:1px solid #152541;color:var(--muted)}
+    footer a{color:#c8d6f7;text-decoration:none}
+    /* responsive */
+    @media (max-width:950px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hamburger{display:inline-block}
+      .mobile{display:none}
+      .nav.open .nav-links{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:68px;background:#0d1830;border-bottom:1px solid #16243f;padding:16px}
+    }
+    @media (max-width:560px){ .grid-3{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav" id="nav">
+    <div class="brand" aria-label="BrightSmile Dental">
+      <span class="logo" aria-hidden="true"></span> BrightSmile
+    </div>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-ghost" href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#contact">Get a Free Quote</a>
+    </nav>
+    <button class="hamburger" aria-label="Toggle menu" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><span class="icon" aria-hidden="true"></span> Websites for Dentists</span>
+        <h1>Modern Dental Websites that Attract New Patients</h1>
+        <p>We design conversion-focused, HIPAA-aware WordPress sites for dental practices. Clear messaging, fast load times, and SEO foundations — all built to turn visitors into booked appointments.</p>
+        <div style="display:flex;gap:12px;margin-top:14px;">
+          <a class="btn btn-primary" href="#contact">Request Proposal</a>
+          <a class="btn btn-ghost" href="#results">See Results</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>+42%</b><span class="muted">Avg. increase in calls</span></div>
+          <div class="stat"><b><span aria-hidden="true">★</span> 4.9/5</b><span class="muted">Client satisfaction</span></div>
+          <div class="stat"><b>2–3 wks</b><span class="muted">Typical timeline</span></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Website preview">
+        <!-- simple inline mockup -->
+        <div style="background:#0c162b;border:1px solid #1c2a47;border-radius:12px;overflow:hidden">
+          <div style="display:flex;gap:8px;padding:10px;background:#0a1a33;border-bottom:1px solid #162a4a">
+            <span style="width:10px;height:10px;border-radius:50%;background:#ff6961"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#ffd166"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#63d297"></span>
+            <span class="muted" style="margin-left:auto">brightsmile.dental</span>
+          </div>
+          <div style="padding:22px">
+            <div style="height:150px;border-radius:10px;background:linear-gradient(135deg,#3aa9ff33,#63d29733)"></div>
+            <h3 style="margin:14px 0 6px">Trusted Family Dentistry in Your City</h3>
+            <p class="muted" style="margin-top:0">Compassionate care, modern technology, same-day appointments.</p>
+            <div style="display:flex;gap:10px;margin-top:10px">
+              <span class="btn btn-primary">Book Appointment</span>
+              <span class="btn btn-ghost">Insurance Info</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="container">
+      <div class="row" aria-label="Highlights">
+        <span class="chip">HIPAA-aware forms</span>
+        <span class="chip">SEO-ready structure</span>
+        <span class="chip">Accessible & mobile-first</span>
+        <span class="chip">Fast hosting guidance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>Services for Dental Practices</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Custom Website Design</h3>
+          <p class="muted">Tailored branding, layouts and copy that communicate trust and comfort.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Homepage + Services + About + Contact</span></li>
+            <li><span class="tick"></span><span>Before/After gallery</span></li>
+            <li><span class="tick"></span><span>Blog & patient education</span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Conversions & Booking</h3>
+          <p class="muted">Turn visitors into patients with clear CTAs and frictionless forms.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Online appointment requests</span></li>
+            <li><span class="tick"></span><span>Insurance & financing info</span></li>
+            <li><span class="tick"></span><span>Call tracking integration</span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Local SEO Foundations</h3>
+          <p class="muted">Technical basics that help you show up for “dentist near me”.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Schema for services & reviews</span></li>
+            <li><span class="tick"></span><span>Fast, Core Web Vitals-friendly build</span></li>
+            <li><span class="tick"></span><span>Google Business Profile guidance</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>Results You Can Measure</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>+38% More Calls</h3><p class="muted">Average increase in phone inquiries within 60 days.</p></div>
+        <div class="card"><h3>2.1s Load Time</h3><p class="muted">Optimized images, caching, and clean code.</p></div>
+        <div class="card"><h3>Accessibility A</h3><p class="muted">Inclusive color contrast, ARIA labels, keyboard nav.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>Simple, Transparent Process</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1) Strategy & Content</h3>
+          <p class="muted">We map your services, insurance, and competitive strengths.</p>
+        </div>
+        <div class="card">
+          <h3>2) Design & Build</h3>
+          <p class="muted">Figma preview, then clean WordPress build with Gutenberg/Blocks.</p>
+        </div>
+        <div class="card">
+          <h3>3) Launch & Train</h3>
+          <p class="muted">DNS, forms, analytics; quick site-owner tutorial included.</p>
+        </div>
+        <div class="card">
+          <h3>4) Support</h3>
+          <p class="muted">30 days post-launch support; optional care plans available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>Straightforward Packages</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Starter</h3>
+          <p class="muted">Best for single-provider clinics.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Up to 5 pages</span></li>
+            <li><span class="tick"></span><span>Online request form</span></li>
+            <li><span class="tick"></span><span>Basic SEO setup</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Choose Starter</a>
+        </div>
+        <div class="card">
+          <h3>Growth</h3>
+          <p class="muted">Multi-service practices.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Up to 12 pages</span></li>
+            <li><span class="tick"></span><span>Before/After gallery</span></li>
+            <li><span class="tick"></span><span>Blog & schema</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Choose Growth</a>
+        </div>
+        <div class="card">
+          <h3>Premium</h3>
+          <p class="muted">Group practices & specialty clinics.</p>
+          <ul class="list">
+            <li><span class="tick"></span><span>Custom design & animations</span></li>
+            <li><span class="tick"></span><span>Advanced SEO & tracking</span></li>
+            <li><span class="tick"></span><span>Content assistance</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Choose Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>What Dentists Say</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card item">
+          <span class="avatar" aria-hidden="true"></span>
+          <blockquote>
+            “Our new site feels welcoming and we’re getting more appointment requests than ever.”
+            <div class="muted">— Dr. Patel, Sunrise Dental</div>
+          </blockquote>
+        </div>
+        <div class="card item">
+          <span class="avatar" aria-hidden="true"></span>
+          <blockquote>
+            “Load times dropped dramatically and SEO improved. Smooth process start to finish.”
+            <div class="muted">— Dr. Nguyen, Oak Hills Family Dentistry</div>
+          </blockquote>
+        </div>
+        <div class="card item">
+          <span class="avatar" aria-hidden="true"></span>
+          <blockquote>
+            “The team understood our brand and translated it into a site patients trust.”
+            <div class="muted">— Dr. Garcia, River City Smiles</div>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <span class="icon" aria-hidden="true"></span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Do you migrate from Wix/Squarespace?</h3>
+          <p class="muted">Yes — we migrate content and set up redirects so rankings are preserved.</p>
+        </div>
+        <div class="card">
+          <h3>Is hosting and domain included?</h3>
+          <p class="muted">Not included, but we’ll recommend reliable options and set them up for you.</p>
+        </div>
+        <div class="card">
+          <h3>Can we edit the site ourselves?</h3>
+          <p class="muted">Absolutely. We use blocks and provide a quick tutorial so your team can update pages.</p>
+        </div>
+        <div class="card">
+          <h3>How long does it take?</h3>
+          <p class="muted">Most sites launch within 2–3 weeks depending on content and feedback speed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h3 style="margin:.2em 0">Ready to grow your practice?</h3>
+          <p class="muted" style="margin:.3em 0 0">Tell us about your services and ideal patients. We’ll send a free proposal within 24 hours.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:hello@example.com">Get My Free Proposal</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center">
+    <div class="brand"><span class="logo" aria-hidden="true"></span> BrightSmile</div>
+    <div>© <span id="year"></span> BrightSmile Web Studio • All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const nav = document.getElementById('nav');
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Smooth scroll for same-page links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){ e.preventDefault(); window.scrollTo({top: el.offsetTop-60, behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
