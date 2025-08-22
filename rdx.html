@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakhi Dhar | WordPress Expert & Elementor Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #4f46e5, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-overlay {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4f46e5, #ec4899);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active::after {
+            width: 100%;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Rakhi Dhar</div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link active text-gray-800 hover:text-indigo-600">Home</a></li>
+                        <li><a href="#services" class="nav-link text-gray-800 hover:text-indigo-600">Services</a></li>
+                        <li><a href="#portfolio" class="nav-link text-gray-800 hover:text-indigo-600">Portfolio</a></li>
+                        <li><a href="#about" class="nav-link text-gray-800 hover:text-indigo-600">About</a></li>
+                        <li><a href="#testimonials" class="nav-link text-gray-800 hover:text-indigo-600">Testimonials</a></li>
+                        <li><a href="#contact" class="nav-link text-gray-800 hover:text-indigo-600">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl text-gray-800"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <ul class="space-y-4">
+                    <li><a href="#home" class="block py-2 text-gray-800 hover:text-indigo-600">Home</a></li>
+                    <li><a href="#services" class="block py-2 text-gray-800 hover:text-indigo-600">Services</a></li>
+                    <li><a href="#portfolio" class="block py-2 text-gray-800 hover:text-indigo-600">Portfolio</a></li>
+                    <li><a href="#about" class="block py-2 text-gray-800 hover:text-indigo-600">About</a></li>
+                    <li><a href="#testimonials" class="block py-2 text-gray-800 hover:text-indigo-600">Testimonials</a></li>
+                    <li><a href="#contact" class="block py-2 text-gray-800 hover:text-indigo-600">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 bg-gradient-to-r from-indigo-50 to-pink-50">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+                        Hi, I'm <span class="gradient-text">Rakhi Dhar</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-600 mb-8">
+                        WordPress Expert & Elementor Specialist
+                    </h2>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        I create stunning, high-performance WordPress websites that help businesses grow and succeed online.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                            Get In Touch
+                        </a>
+                        <a href="#portfolio" class="px-8 py-3 border-2 border-indigo-600 text-indigo-600 rounded-full font-semibold hover:bg-indigo-600 hover:text-white transition-all duration-300">
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Rakhi Dhar" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-8 border-white shadow-xl floating">
+                        <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-full shadow-lg">
+                            <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center text-white text-2xl">
+                                <i class="fab fa-wordpress"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">My <span class="gradient-text">Services</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">I offer comprehensive WordPress solutions tailored to your business needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mb-6">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Custom WordPress Development</h3>
+                    <p class="text-gray-600 mb-4">Bespoke WordPress solutions built from scratch to meet your specific requirements.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-600 mr-2"></i> Custom Theme Development</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-600 mr-2"></i> Plugin Development</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-600 mr-2"></i> API Integrations</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 mb-6">
+                        <i class="fab fa-elementor text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Elementor Website Design</h3>
+                    <p class="text-gray-600 mb-4">Beautiful, responsive websites built with Elementor that convert visitors into customers.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-2"></i> Landing Pages</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-2"></i> Custom Widgets</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-pink-600 mr-2"></i> Theme Builder</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-6">
+                        <i class="fas fa-shopping-cart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">WooCommerce Solutions</h3>
+                    <p class="text-gray-600 mb-4">Complete eCommerce solutions to help you sell products and services online.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Store Setup</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Payment Gateways</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-600 mr-2"></i> Custom Checkout</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fas fa-tachometer-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Website Optimization</h3>
+                    <p class="text-gray-600 mb-4">Speed up your website and improve performance for better user experience and SEO.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Performance Tuning</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Caching Solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-600 mr-2"></i> Image Optimization</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Security & Maintenance</h3>
+                    <p class="text-gray-600 mb-4">Keep your website secure and up-to-date with regular maintenance and security checks.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-600 mr-2"></i> Security Hardening</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-600 mr-2"></i> Regular Backups</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-600 mr-2"></i> Malware Removal</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 mb-6">
+                        <i class="fas fa-search text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">SEO Optimization</h3>
+                    <p class="text-gray-600 mb-4">Improve your website's visibility in search engines and drive more organic traffic.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-2"></i> On-Page SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-2"></i> Technical SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-600 mr-2"></i> Schema Markup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">My <span class="gradient-text">Portfolio</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A showcase of my recent WordPress and Elementor projects.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1136&q=80" alt="Ecommerce Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">Luxe Fashion Store</h3>
+                        <p class="text-gray-200 mb-4">A premium WooCommerce store built with Elementor Pro and custom product filters.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">WooCommerce</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Corporate Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">TechSolutions Inc.</h3>
+                        <p class="text-gray-200 mb-4">Corporate website with custom theme, animated sections and contact form.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded">Custom Theme</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Restaurant Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">Bella Cucina</h3>
+                        <p class="text-gray-200 mb-4">Restaurant website with online reservation system and menu display.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-green-600 text-white text-xs px-2 py-1 rounded">Reservation</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Portfolio Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">Creative Studio</h3>
+                        <p class="text-gray-200 mb-4">Portfolio website for a design agency with interactive galleries.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-yellow-600 text-white text-xs px-2 py-1 rounded">Portfolio</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1112&q=80" alt="Blog Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">Travel Diaries</h3>
+                        <p class="text-gray-200 mb-4">Travel blog with custom post types, maps integration and newsletter.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-red-600 text-white text-xs px-2 py-1 rounded">Blog</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Membership Website" class="w-full h-64 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent p-6 flex flex-col justify-end">
+                        <h3 class="text-white text-xl font-bold mb-2">LearnHub Academy</h3>
+                        <p class="text-gray-200 mb-4">Online learning platform with course management and membership system.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded">WordPress</span>
+                            <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded">Elementor</span>
+                            <span class="bg-purple-600 text-white text-xs px-2 py-1 rounded">LMS</span>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-white border border-white px-4 py-2 rounded hover:bg-white hover:text-indigo-600 transition-colors">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About <span class="gradient-text">Me</span></h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        I'm Rakhi Dhar, a passionate WordPress developer and Elementor specialist with over 5 years of experience creating beautiful, functional websites for clients worldwide.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        My journey in web development began when I discovered the power of WordPress to help businesses establish their online presence. Since then, I've dedicated myself to mastering WordPress and Elementor to deliver exceptional results for my clients.
+                    </p>
+                    <p class="text-gray-600 mb-8">
+                        When I'm not coding, you can find me exploring new design trends, contributing to the WordPress community, or mentoring aspiring developers.
+                    </p>
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block">
+                        Let's Work Together
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">My <span class="gradient-text">Skills</span></h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">WordPress Development</span>
+                                <span class="text-gray-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">Elementor</span>
+                                <span class="text-gray-600">98%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">WooCommerce</span>
+                                <span class="text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">PHP</span>
+                                <span class="text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">CSS/HTML</span>
+                                <span class="text-gray-600">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 font-medium">JavaScript</span>
+                                <span class="text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-gradient-to-r from-indigo-600 to-pink-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Client <span class="gradient-text">Testimonials</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">What my clients say about my work and services.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">CEO, Luxe Fashion</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Rakhi transformed our online store with her WooCommerce expertise. The site is not only beautiful but also performs exceptionally well. Our sales have increased by 40% since the redesign."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael Chen</h4>
+                            <p class="text-gray-600 text-sm">Director, TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Working with Rakhi was a game-changer for our corporate website. Her attention to detail and understanding of our brand resulted in a site that perfectly represents our company."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Emma Rodriguez</h4>
+                            <p class="text-gray-600 text-sm">Owner, Bella Cucina</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Rakhi built our restaurant website with online reservations in record time. She was responsive, professional, and delivered beyond our expectations. Highly recommended!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-r from-indigo-50 to-pink-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Contact <span class="gradient-text">Information</span></h3>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+                                <p class="text-gray-600">hello@rakhidhar.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Phone</h4>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Location</h4>
+                                <p class="text-gray-600">San Francisco, CA</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-800 mb-6 mt-10">Follow <span class="gradient-text">Me</span></h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 hover:bg-pink-600 hover:text-white transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-600 hover:text-white transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Send Me a <span class="gradient-text">Message</span></h3>
+                        <form id="contact-form">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold gradient-text mb-2">Rakhi Dhar</div>
+                    <p class="text-gray-400">WordPress Expert & Elementor Specialist</p>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; 2025 Rakhi Dhar. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                // Scroll to target
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + 100;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
